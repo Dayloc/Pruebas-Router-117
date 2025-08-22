@@ -30,7 +30,7 @@ console.log(listaUsers)
 			<p>
 				<img src={rigoImageUrl} />
 			</p>
-			<button onClick={()=>navegacion()}>Ir Prueba1</button>
+			<button className="btn btn-primary" onClick={()=>navegacion()}>Ir Prueba1</button>
 		</div>
 	);
 }; 
