@@ -9,17 +9,23 @@ export const Home = () => {
 const navigate = useNavigate()
 
 const {store, dispatch} =useGlobalReducer()
+
+
 const {listaUsers} = store
 
-const navegacion = ()=>{
-	navigate("/prueba1")
-}
+
 useEffect(() => {
 
 	getUsers(dispatch)
 
-}, [dispatch]);
+}, []);
 
+const nombre = "Eduardo";
+const id = 1
+
+const navegacion = ()=>{
+	navigate(`/prueba1/${nombre}/${id}`)
+}
 
 console.log(listaUsers)
 
@@ -31,6 +37,12 @@ console.log(listaUsers)
 				<img src={rigoImageUrl} />
 			</p>
 			<button className="btn btn-primary" onClick={()=>navegacion()}>Ir Prueba1</button>
+
+			{
+				listaUsers && listaUsers.map((user)=>
+				<div key={user.id}>{user.name}</div>
+				)
+			}
 		</div>
 	);
 }; 

@@ -1,4 +1,5 @@
-export const getUsers = async (dispatch) => {
+     //PAso3
+export const getUsers = async ( dispatch ) => {
     try {
         const response = await fetch("https://playground.4geeks.com/todo/users");
         
@@ -8,10 +9,10 @@ export const getUsers = async (dispatch) => {
 
         const data = await response.json();
 
-        dispatch({
+       dispatch({
             type: "SaveUsers",
             payload: data.users 
-        });
+        }); 
         console.log(data.users)
         
         return data;

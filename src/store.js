@@ -1,3 +1,5 @@
+
+ //Paso 1
 export const initialStore=()=>{
   return{
     message: null,
@@ -6,6 +8,7 @@ export const initialStore=()=>{
   }
 }
 
+//Paso2
 export default function storeReducer(store, action = {}) {
   switch(action.type){
     case 'SaveUsers':
@@ -14,16 +17,7 @@ export default function storeReducer(store, action = {}) {
         listaUsers : action.payload
       }
 
-       case 'SaveUsers3':
-      return{
-        ...store,
-        listaUsers : action.payload
-      }
-       case 'SaveUsers2':
-      return{
-        ...store,
-        listaUsers : action.payload
-      }
+      
     default:
       throw Error('Unknown action.');
   }    

@@ -1,13 +1,13 @@
 import React from 'react'
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-function Prueba1() {
-    const {store, dispatch} =useGlobalReducer()
+import { useParams } from 'react-router-dom'
 
-    console.log(store)
+function Prueba1() {
+    const {id,nombre } = useParams()
+    
     
   return (
     <div>
-      Hola, soy Prueba 1
+      Hola, soy Prueba 1 y me ha llegado por url {nombre} y {id}
     </div>
   )
 }
