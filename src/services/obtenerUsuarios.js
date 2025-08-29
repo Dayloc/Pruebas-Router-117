@@ -1,7 +1,9 @@
      //PAso3
+const urlBaase ="https://playground.4geeks.com/todo/"
+
 export const getUsers = async ( dispatch ) => {
     try {
-        const response = await fetch("https://playground.4geeks.com/todo/users");
+        const response = await fetch(`${urlBaase}users`);
         
         if (!response.ok) {
             throw new Error(`Error ${response.status}`);
@@ -13,11 +15,12 @@ export const getUsers = async ( dispatch ) => {
             type: "SaveUsers",
             payload: data.users 
         }); 
-        console.log(data.users)
+
+        //console.log(data.users)
         
         return data;
 
     } catch (error) {
-        console.log("Error al cargar los usuarios:", error.message);
+        console.log("Error al cargar los usuarios:", error);
     }
 };

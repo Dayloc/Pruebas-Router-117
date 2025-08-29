@@ -14,7 +14,7 @@ export default function storeReducer(store, action = {}) {
     case 'SaveUsers':
       return{
         ...store,
-        listaUsers : action.payload
+        listaUsuarios : action.payload
       }
 
       

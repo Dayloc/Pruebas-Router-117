@@ -8,7 +8,9 @@ function Prueba1() {
 
   useEffect(() => {
     const storedName = localStorage.getItem("username");
+
     if (storedName) {
+
       setSavedName(storedName);
     }
   }, []);
@@ -19,6 +21,11 @@ function Prueba1() {
     setSavedName(name);
     setName(""); // limpiar input
   };
+
+  const limpiaDatos = ()=>{
+    localStorage.clear()
+    setSavedName("")
+  }
   return (
     <div>
       Hola, soy Prueba 1 y me ha llegado por url {nombre}  con el id: {id}
@@ -33,7 +40,7 @@ function Prueba1() {
         placeholder="Escribe tu nombre"
       />
       <button onClick={handleSave}>Guardar</button>
-      <button className="btn btn-danger m-2" onClick={()=>localStorage.clear()}>Limpar LocalStore</button>
+      <button className="btn btn-danger m-2" onClick={()=>limpiaDatos()}>Limpar LocalStore</button>
     </div>
     </div>
   );
