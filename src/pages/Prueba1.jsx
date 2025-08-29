@@ -1,20 +1,40 @@
-import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import React,{ useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function Prueba1() {
-  //const { nombre, id } = useParams();
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
+  const { nombre, id } = useParams();
+   const [name, setName] = useState("");
+  const [savedName, setSavedName] = useState("");
 
-    const nombre = query.get("nombre");
-  const id = query.get("id");
+  useEffect(() => {
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+      setSavedName(storedName);
+    }
+  }, []);
+
+//Para guardar 
+   const handleSave = () => {
+    localStorage.setItem("username", name);
+    setSavedName(name);
+    setName(""); // limpiar input
+  };
   return (
     <div>
-      Hola, soy Prueba 1 y me ha llegado por url {nombre} y {id}
-      <div>
-        <p>Ruta actual: {location.pathname}</p>
-        <p>Query params: {location.search}</p>
-      </div>
+      Hola, soy Prueba 1 y me ha llegado por url {nombre}  con el id: {id}
+     
+
+     <div>
+      <h2>Nombre guardado: {savedName || "Ninguno"}</h2>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Escribe tu nombre"
+      />
+      <button onClick={handleSave}>Guardar</button>
+      <button className="btn btn-danger m-2" onClick={()=>localStorage.clear()}>Limpar LocalStore</button>
+    </div>
     </div>
   );
 }
